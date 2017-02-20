@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: OData Example Profile
+Bundle-SymbolicName: com.example.odata.profile;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: UOC
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.uml2.uml,
+ org.eclipse.papyrus.uml.extensionpoints

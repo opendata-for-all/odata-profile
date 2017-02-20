@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping
+            source="pathmap://ODA_PROFILES/"
+            target="platform:/plugin/com.example.odata.profile/resources/">
+      </mapping>
+   </extension>
+   <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+      <profile
+            description="Profile for Open Data Applications"
+            iconpath="icons/OData-logo.png"
+            name="ODA Profile"
+            path="pathmap://ODA_PROFILES/odata.profile.uml"
+            provider="UOC - Som-Reserach Lab">
+      </profile>
+   </extension>
+
+</plugin>
