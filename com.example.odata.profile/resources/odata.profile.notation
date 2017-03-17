@@ -447,6 +447,10 @@
         <element xmi:type="uml:Property" href="odata.profile.uml#_Hva7gPQxEeapod9Ch20uSQ"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_HvoW4fQxEeapod9Ch20uSQ"/>
       </children>
+      <children xmi:type="notation:Shape" xmi:id="_eReUAAtaEeeOHoEmuIcGDg" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="odata.profile.uml#_ePR7oAtaEeeOHoEmuIcGDg"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_eReUAQtaEeeOHoEmuIcGDg"/>
+      </children>
       <styles xmi:type="notation:TitleStyle" xmi:id="_me7yQvQwEeapod9Ch20uSQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_me7yQ_QwEeapod9Ch20uSQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_me7yRPQwEeapod9Ch20uSQ"/>
