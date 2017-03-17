@@ -1,9 +1,8 @@
-package com.example.odata.profile.utils.popup.actions;
+package som.odata.profile.utils.popup.actions;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.core.resources.IFile;
@@ -19,11 +18,8 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.Profile;
-import org.eclipse.uml2.uml.Stereotype;
-import org.eclipse.uml2.uml.util.UMLUtil;
 
 public class AutoApplyProfileAction implements IObjectActionDelegate {
 
@@ -62,17 +58,18 @@ public class AutoApplyProfileAction implements IObjectActionDelegate {
 			Resource profileResource = resourceSet.getResource(URI.createURI("pathmap://ODA_PROFILES/odata.profile.uml"), true);
 			Profile profile = (Profile) profileResource.getEObject("_pWtvsO-mEeaLcvwqpORGRg");
 			pkg.applyProfile(profile);
-			for (Iterator<EObject> it = pkg.eAllContents(); it.hasNext();) {
-				EObject child = it.next();
-				if (child instanceof Class) {
-					Class clazz = (Class) child;
-					Stereotype stereotype = clazz.getApplicableStereotype("OData Profile::ODataEntity");
-					if (!clazz.isStereotypeApplied(stereotype)) {
-						clazz.applyStereotype(stereotype);
-						UMLUtil.setTaggedValue(clazz, stereotype, "entity", clazz.getName());
-					}
-				}
-			}
+			// TODO default profile
+//			for (Iterator<EObject> it = pkg.eAllContents(); it.hasNext();) {
+//				EObject child = it.next();
+//				if (child instanceof Class) {
+//					Class clazz = (Class) child;
+//					Stereotype stereotype = clazz.getApplicableStereotype("OData Profile::ODataEntity");
+//					if (!clazz.isStereotypeApplied(stereotype)) {
+//						clazz.applyStereotype(stereotype);
+//						UMLUtil.setTaggedValue(clazz, stereotype, "entity", clazz.getName());
+//					}
+//				}
+//			}
 		}
 		try {
 			resource.save(Collections.emptyMap());

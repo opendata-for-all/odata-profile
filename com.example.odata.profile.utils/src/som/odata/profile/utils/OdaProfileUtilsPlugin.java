@@ -1,4 +1,4 @@
-package com.example.odata.profile.utils;
+package som.odata.profile.utils;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -10,7 +10,7 @@ import org.osgi.framework.BundleContext;
 public class OdaProfileUtilsPlugin extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "com.example.odata.profile.utils"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "som.odata.profile.utils"; //$NON-NLS-1$
 
 	// The shared instance
 	private static OdaProfileUtilsPlugin plugin;
