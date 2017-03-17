@@ -6,21 +6,22 @@
          point="org.eclipse.ui.popupMenus">
       <objectContribution
             objectClass="org.eclipse.core.resources.IFile"
-            id="com.example.odata.profile.utils.contribution1">
+            id="som.odata.profile.utils.contribution1">
          <menu
+               icon="icons/OData-logo.png"
+               id="som.odata.profile.utils.menu1"
                label="ODada"
-               path="additions"
-               id="som.odata.profile.utils.menu">
+               path="additions">
             <separator
                   name="group1">
             </separator>
          </menu>
          <action
-               label="Auto-apply Profile"
                class="som.odata.profile.utils.popup.actions.AutoApplyProfileAction"
-               menubarPath="com.example.odata.profile.utils.menu1/group1"
                enablesFor="1"
-               id="com.example.odata.profile.utils.newAction">
+               id="som.odata.profile.utils.newAction"
+               label="Auto-apply Profile"
+               menubarPath="som.odata.profile.utils.menu1/group1">
          </action>
       </objectContribution>
    </extension>

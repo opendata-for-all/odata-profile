@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: ODA Profile Utils
 Bundle-SymbolicName: som.odata.profile.utils;singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Bundle-Activator: som.odata.profile.utils.OdaProfileUtilsPlugin
+Bundle-Activator: som.odata.profile.utils.ODaProfileUtilsPlugin
 Bundle-Vendor: UOC
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
