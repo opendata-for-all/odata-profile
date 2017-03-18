@@ -7,18 +7,18 @@ import org.osgi.framework.BundleContext;
 /**
  * The activator class controls the plug-in life cycle
  */
-public class OdaProfileUtilsPlugin extends AbstractUIPlugin {
+public class ODaProfileUtilsPlugin extends AbstractUIPlugin {
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "som.odata.profile.utils"; //$NON-NLS-1$
 
 	// The shared instance
-	private static OdaProfileUtilsPlugin plugin;
+	private static ODaProfileUtilsPlugin plugin;
 	
 	/**
 	 * The constructor
 	 */
-	public OdaProfileUtilsPlugin() {
+	public ODaProfileUtilsPlugin() {
 	}
 
 	/*
@@ -44,7 +44,7 @@ public class OdaProfileUtilsPlugin extends AbstractUIPlugin {
 	 *
 	 * @return the shared instance
 	 */
-	public static OdaProfileUtilsPlugin getDefault() {
+	public static ODaProfileUtilsPlugin getDefault() {
 		return plugin;
 	}
 
