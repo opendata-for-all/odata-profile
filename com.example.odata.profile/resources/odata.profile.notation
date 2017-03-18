@@ -144,7 +144,7 @@
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_F9biG_OEEeapod9Ch20uSQ"/>
     </children>
     <element xmi:type="uml:Stereotype" href="odata.profile.uml#_F9aT8POEEeapod9Ch20uSQ"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_F9biH_OEEeapod9Ch20uSQ" x="17" y="431" height="92"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_F9biH_OEEeapod9Ch20uSQ" x="15" y="435" height="92"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_JL63UPOEEeapod9Ch20uSQ" type="Stereotype_Shape">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BgjckATnEeewwLD70ehPgw" source="PapyrusCSSForceValue">
@@ -2001,7 +2001,7 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_oTJu4fOhEeapod9Ch20uSQ"/>
     <element xmi:type="uml:Extension" href="odata.profile.uml#_oSuREPOhEeapod9Ch20uSQ"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_oTJu4vOhEeapod9Ch20uSQ" points="[116, 406, -643984, -643984]$[118, 376, -643984, -643984]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_oTo3EPOhEeapod9Ch20uSQ" id="(0.444,0.0)"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_oTo3EPOhEeapod9Ch20uSQ" id="(0.4405940594059406,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_oTo3EfOhEeapod9Ch20uSQ" id="(0.44,1.0)"/>
   </edges>
   <edges xmi:type="notation:Connector" xmi:id="_t5JuFPOhEeapod9Ch20uSQ" type="StereotypeCommentLink" source="_t43aMPOhEeapod9Ch20uSQ" target="_t5JuEPOhEeapod9Ch20uSQ">
