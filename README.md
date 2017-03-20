@@ -3,7 +3,7 @@ Eclipse plugin for OData
 
 An Eclipse plugin incling:
 
-* An editor based on [Paparys](https://eclipse.org/papyrus/ "paparys") allowing to annotate a UML class diagram with OData stereotype.
+* An editor based on [Paparys](https://eclipse.org/papyrus/ "paparys") allowing to annotate a UML class diagram with OData stereotypes.
 * A generator to apply an OData profile to any UML model.
 
 
