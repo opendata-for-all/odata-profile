@@ -1,9 +1,6 @@
 Eclipse plugin for OData
 ========
 
-What is EMF-REST?
------------------
-
 An Eclipse plugin incling:
 
 * An editor based on [Paparys](https://eclipse.org/papyrus/ "paparys") allowing to annotate a UML class diagram with OData stereotype.
