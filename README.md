@@ -7,7 +7,7 @@ An Eclipse plugin incling:
 * A generator to apply an OData profile to any UML model.
 
 
-Who is behind EMF-REST?
+Who is behind this?
 -----------------------
 * [Hamza Ed-douibi](http://github.com/hamzaed/ "Hamza Ed-douibi")
 * [Javier Canovas](http://github.com/jlcanovas/ "Javier Canovas")
