@@ -3,6 +3,7 @@ package som.odata.profile.utils.popup.actions;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.core.resources.IFile;
@@ -18,8 +19,15 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.uml2.uml.Class;
+import org.eclipse.uml2.uml.DataType;
+import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.Package;
+import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Profile;
+import org.eclipse.uml2.uml.Property;
+
+import som.odata.profile.utils.ODataDefaultProfileUtils;
 
 public class AutoApplyProfileAction implements IObjectActionDelegate {
 
@@ -57,19 +65,47 @@ public class AutoApplyProfileAction implements IObjectActionDelegate {
 			// pathmap://ODA_PROFILES/odata.profile.uml#_p6kjUO-pEeaLcvwqpORGRg
 			Resource profileResource = resourceSet.getResource(URI.createURI("pathmap://ODA_PROFILES/odata.profile.uml"), true);
 			Profile profile = (Profile) profileResource.getEObject("_pWtvsO-mEeaLcvwqpORGRg");
+			
 			pkg.applyProfile(profile);
-			// TODO default profile
-//			for (Iterator<EObject> it = pkg.eAllContents(); it.hasNext();) {
-//				EObject child = it.next();
-//				if (child instanceof Class) {
-//					Class clazz = (Class) child;
-//					Stereotype stereotype = clazz.getApplicableStereotype("OData Profile::ODataEntity");
-//					if (!clazz.isStereotypeApplied(stereotype)) {
-//						clazz.applyStereotype(stereotype);
-//						UMLUtil.setTaggedValue(clazz, stereotype, "entity", clazz.getName());
-//					}
-//				}
-//			}
+			ODataDefaultProfileUtils.applyODServiceStereotype(pkg);
+			for (Iterator<EObject> it = pkg.eAllContents(); it.hasNext();) {
+				EObject child = it.next();
+				if (child instanceof Class) {
+					Class clazz = (Class) child;
+					ODataDefaultProfileUtils.applyODEntityType(clazz);
+					ODataDefaultProfileUtils.applyODEntitySet(clazz);
+					
+				}
+				if (child instanceof Property) {
+					Property property = (Property) child;
+					ODataDefaultProfileUtils.applyODProperty(property);
+					ODataDefaultProfileUtils.applyODataNavigationProperty(property);
+					ODataDefaultProfileUtils.applyODataNavigationPropertyBinding(property);
+					
+				}
+				if(child instanceof DataType){
+					DataType dataType = (DataType) child;
+					if(child instanceof PrimitiveType)
+						ODataDefaultProfileUtils.applyODPrimitiveType(dataType);
+					else 
+						if (child instanceof Enumeration)
+							ODataDefaultProfileUtils.applyODEnumType(dataType);
+						else
+							ODataDefaultProfileUtils.applyODComplexType(dataType);
+				}
+				
+			}
+		}
+		//resolve basetype
+		for (Package pkg : packages) {
+			for (Iterator<EObject> it = pkg.eAllContents(); it.hasNext();) {
+				EObject child = it.next();
+				if (child instanceof Class ) {
+					Class clazz = (Class) child;
+					ODataDefaultProfileUtils.resolveBaseType(clazz);
+					
+				}
+			}
 		}
 		try {
 			resource.save(Collections.emptyMap());
