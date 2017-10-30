@@ -148,7 +148,7 @@ public class ODataDefaultProfileUtils {
 	}
 		public static String getPlural(String word){
 			if(word.endsWith("y")){
-				return word.substring(0, word.length() +2)+"ies";
+				return word.substring(0, word.length()- 1)+"ies";
 				
 			}
 			else
