@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ODataProfile="http:///schemas/ODataProfile/_VJO7IAtwEeeOHoEmuIcGDg/0" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/ODataProfile/_VJO7IAtwEeeOHoEmuIcGDg/0 ../som.odata.profile/resources/odata.profile.uml">
+  <uml:Model xmi:id="_aQq3EAfjEeetteODqkZ1EA" name="ODataDemo">
+    <packageImport xmi:id="_aRogYAfjEeetteODqkZ1EA">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Class" xmi:id="_dZ0ZUAfjEeetteODqkZ1EA" name="Product">
+      <ownedAttribute xmi:id="_v02xQAfjEeetteODqkZ1EA" name="ID" type="_2umQQAfjEeetteODqkZ1EA" isID="true"/>
+      <ownedAttribute xmi:id="_7yXsIAfjEeetteODqkZ1EA" name="Name" type="_2um3UQfjEeetteODqkZ1EA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BMImIAfkEeetteODqkZ1EA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BMQh8AfkEeetteODqkZ1EA" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Cnd7sAfkEeetteODqkZ1EA" name="Description" type="_2um3UQfjEeetteODqkZ1EA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FZ8DUAfkEeetteODqkZ1EA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FaBi4AfkEeetteODqkZ1EA" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_f1_EUAfkEeetteODqkZ1EA" name="ReleasedDate" type="_2um3UgfjEeetteODqkZ1EA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_f1_EUQfkEeetteODqkZ1EA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_f1_EUgfkEeetteODqkZ1EA" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_WWC_IAfkEeetteODqkZ1EA" name="DiscountedDate" type="_2um3UgfjEeetteODqkZ1EA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ZS81IAfkEeetteODqkZ1EA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ZTFYAAfkEeetteODqkZ1EA" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aPxCsAfkEeetteODqkZ1EA" name="Rating" visibility="public" type="_2umQQAfjEeetteODqkZ1EA"/>
+      <ownedAttribute xmi:id="_YVb0Qgf1EeetteODqkZ1EA" name="Categories" type="_emscIAfjEeetteODqkZ1EA" association="_YVamIAf1EeetteODqkZ1EA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_I3jUgAf2Eee1cN_HEfM3aA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_I3wv4Af2Eee1cN_HEfM3aA" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_emscIAfjEeetteODqkZ1EA" name="Category">
+      <ownedAttribute xmi:id="_w3km8AftEeetteODqkZ1EA" name="ID" type="_2umQQAfjEeetteODqkZ1EA" isID="true"/>
+      <ownedAttribute xmi:id="_w3nDMAftEeetteODqkZ1EA" name="Name" type="_2um3UQfjEeetteODqkZ1EA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_w3nDMQftEeetteODqkZ1EA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_w3nDMgftEeetteODqkZ1EA" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_YVcbUAf1EeetteODqkZ1EA" name="Products" type="_dZ0ZUAfjEeetteODqkZ1EA" association="_YVamIAf1EeetteODqkZ1EA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J034YAf2Eee1cN_HEfM3aA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J09_AAf2Eee1cN_HEfM3aA" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_g8w7oAfjEeetteODqkZ1EA" name="FeaturedProduct">
+      <generalization xmi:id="_cNWaoAftEeetteODqkZ1EA" general="_dZ0ZUAfjEeetteODqkZ1EA"/>
+      <ownedAttribute xmi:id="_OynPoAf0EeetteODqkZ1EA" name="Advertisements" type="_j6ROkAfjEeetteODqkZ1EA" association="_OyeswAf0EeetteODqkZ1EA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_W-ACoA1YEeeaDsP1ysXKuQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_W-H-cA1YEeeaDsP1ysXKuQ" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_j6ROkAfjEeetteODqkZ1EA" name="Advertisement">
+      <ownedAttribute xmi:id="_YGbkYAf0EeetteODqkZ1EA" name="ID" type="_2umQQAfjEeetteODqkZ1EA" isID="true"/>
+      <ownedAttribute xmi:id="_YGf10Af0EeetteODqkZ1EA" name="Name" type="_2um3UQfjEeetteODqkZ1EA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YGf10Qf0EeetteODqkZ1EA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YGf10gf0EeetteODqkZ1EA" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_m2CMYAf0EeetteODqkZ1EA" name="AirDate" type="_2um3UgfjEeetteODqkZ1EA"/>
+      <ownedAttribute xmi:id="_OyodwAf0EeetteODqkZ1EA" name="FeaturedProduct" type="_g8w7oAfjEeetteODqkZ1EA" association="_OyeswAf0EeetteODqkZ1EA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_2umQQAfjEeetteODqkZ1EA" name="Integer"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_2um3UAfjEeetteODqkZ1EA" name="Double"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_2um3UQfjEeetteODqkZ1EA" name="String"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_2um3UgfjEeetteODqkZ1EA" name="Date"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_OyeswAf0EeetteODqkZ1EA" memberEnd="_OynPoAf0EeetteODqkZ1EA _OyodwAf0EeetteODqkZ1EA">
+      <eAnnotations xmi:id="_OykzYAf0EeetteODqkZ1EA" source="org.eclipse.papyrus">
+        <details xmi:id="_OylacAf0EeetteODqkZ1EA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_YVamIAf1EeetteODqkZ1EA" memberEnd="_YVb0Qgf1EeetteODqkZ1EA _YVcbUAf1EeetteODqkZ1EA">
+      <eAnnotations xmi:id="_YVb0QAf1EeetteODqkZ1EA" source="org.eclipse.papyrus">
+        <details xmi:id="_YVb0QQf1EeetteODqkZ1EA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+    </packagedElement>
+  </uml:Model>
+</xmi:XMI>
