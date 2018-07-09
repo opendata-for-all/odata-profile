@@ -6,6 +6,30 @@ An Eclipse plugin including:
 * An editor based on [Paparys](https://eclipse.org/papyrus/ "paparys") allowing the annotation of UML class diagrams with OData stereotypes.
 * A generator to apply an OData profile to any UML model.
 
+## Requirements
+- Eclipse Modeling tools (it can be found [here](http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/oxygen2)).
+- [Papyrus](https://www.eclipse.org/papyrus/) (check the instructions on how to install it [here](http://www.eclipse.org/papyrus/download.html)).
+
+## Installation
+1. Open Eclipse IDE
+2. Click on *Help / Install New Software...*
+3. Click on *Add...* and fill in the form as indicated (the update site is https://som-research.github.io/OData/updates/oxygen) then click on *OK*.
+
+![Add repository](https://som-research.github.io/OData/images/add.PNG)
+
+4. Select *OData* then click on *Next*.
+
+![Install](https://som-research.github.io/openapi-to-uml/images/install.PNG)
+
+5. Follow the the rest of the steps (license, etc...) and reboot Eclipse.
+
+## Using the plugin
+
+1. Create a Project or use an existing project in your workspace.
+2. Create or import a UML model (you can use our [UML model](https://som-research.github.io/OData/resources/products.uml)).
+3. To auto-apply the profile: Right-click on model and select *OData/Auto-apply profile*. This will annotate your UML model with OData stereotypes (check the annotated UML model [here](https://som-research.github.io/OData/resources/annotated-products.uml)).
+
+
 
 Who is behind this?
 -----------------------
