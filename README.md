@@ -28,7 +28,7 @@ An Eclipse plugin including:
 # Auto-apply the profile
 1. Create a Project or use an existing project in your workspace.
 2. Create or import a UML model (you can use our [UML model](https://som-research.github.io/OData/resources/products.uml)).
-3. To auto-apply the profile: Right-click on model and select *OData/Auto-apply profile*. This will annotate your UML model with OData stereotypes (check the annotated UML model [here](https://som-research.github.io/OData/resources/annotated-products.uml)).
+3. To auto-apply the profile: Right-click on your model and select *OData/Auto-apply profile*. This will annotate your UML model with OData stereotypes (check the annotated UML model [here](https://som-research.github.io/OData/resources/annotated-products.uml)).
 
 # Manually apply the profile using Papyrus
 1. Create a Project or use an existing project in your workspace.
