@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/som.odata_1.0.0.201703201211.jar" id="som.odata" version="1.0.0.201703201211">
+   <feature url="features/som.odata_1.0.0.201710301139.jar" id="som.odata" version="1.0.0.201710301139">
       <category name="OData"/>
    </feature>
    <category-def name="OData" label="OData"/>
