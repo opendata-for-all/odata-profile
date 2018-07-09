@@ -15,11 +15,11 @@ An Eclipse plugin including:
 2. Click on *Help / Install New Software...*
 3. Click on *Add...* and fill in the form as indicated (the update site is https://som-research.github.io/OData/updates/oxygen) then click on *OK*.
 
-![Add repository](https://som-research.github.io/OData/images/add.PNG)
+![Add repository](https://github.com/SOM-Research/OData/blob/gh-pages/images/add.PNG)
 
 4. Select *OData* then click on *Next*.
 
-![Install](https://som-research.github.io/openapi-to-uml/images/install.PNG)
+![Install](https://som-research.github.io/OData/images/install.PNG)
 
 5. Follow the the rest of the steps (license, etc...) and reboot Eclipse.
 
