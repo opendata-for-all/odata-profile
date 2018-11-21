@@ -56,11 +56,21 @@ public class AutoApplyProfileAction implements IObjectActionDelegate {
 		ResourceSet resourceSet = new ResourceSetImpl();
 		Resource resource = resourceSet.getResource(URI.createPlatformResourceURI(file.getFullPath().toString(), true), true);
 		List<Package> packages = new ArrayList<Package>();
+		populatePackageList(resource, packages);
+		applyODataProfile(resourceSet, packages);
+		resolveBaseType(packages);
+		save(resource);
+	}
+	
+	private void populatePackageList(Resource resource, List<Package> packages) {
 		for (EObject eObject : resource.getContents()) {
 			if (eObject instanceof Package) {
 				packages.add((Package) eObject);
 			}
 		}
+	}
+
+	private void applyODataProfile(ResourceSet resourceSet, List<Package> packages) {
 		for (Package pkg : packages) {
 			// pathmap://ODA_PROFILES/odata.profile.uml#_p6kjUO-pEeaLcvwqpORGRg
 			Resource profileResource = resourceSet.getResource(URI.createURI("pathmap://ODA_PROFILES/odata.profile.uml"), true);
@@ -96,6 +106,9 @@ public class AutoApplyProfileAction implements IObjectActionDelegate {
 				
 			}
 		}
+	}
+
+	private void resolveBaseType(List<Package> packages) {
 		//resolve basetype
 		for (Package pkg : packages) {
 			for (Iterator<EObject> it = pkg.eAllContents(); it.hasNext();) {
@@ -107,6 +120,9 @@ public class AutoApplyProfileAction implements IObjectActionDelegate {
 				}
 			}
 		}
+	}
+
+	private void save(Resource resource) {
 		try {
 			resource.save(Collections.emptyMap());
 		} catch (IOException e) {
