@@ -1,15 +1,95 @@
 package som.odata.profile.utils;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.uml2.uml.AggregationKind;
+import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.DataType;
+import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.Generalization;
 import org.eclipse.uml2.uml.Package;
+import org.eclipse.uml2.uml.PrimitiveType;
+import org.eclipse.uml2.uml.Profile;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Stereotype;
+import org.eclipse.uml2.uml.UMLPackage;
 import org.eclipse.uml2.uml.util.UMLUtil;
 
 public class ODataDefaultProfileUtils {
+	
+	public static void applyODataProfile(Resource modelResource, Resource profileResource) {
+		List<Package> packages = new ArrayList<Package>();
+		populatePackageList(modelResource, packages);
+		applyODataStereotypes(profileResource, packages);
+		resolveBaseType(packages);
+	}
+	
+	private static void populatePackageList(Resource resource, List<Package> packages) {
+		for (EObject eObject : resource.getContents()) {
+			if (eObject instanceof Package) {
+				packages.add((Package) eObject);
+			}
+		}
+	}
+
+	private static void applyODataStereotypes(Resource profileResource, List<Package> packages) {
+		for (Package pkg : packages) {
+			
+			Profile profile = (Profile) EcoreUtil
+					.getObjectByType(profileResource.getContents(),
+							UMLPackage.Literals.PROFILE);
+			
+			pkg.applyProfile(profile);
+			ODataDefaultProfileUtils.applyODServiceStereotype(pkg);
+			for (Iterator<EObject> it = pkg.eAllContents(); it.hasNext();) {
+				EObject child = it.next();
+				if (child instanceof Class) {
+					Class clazz = (Class) child;
+					ODataDefaultProfileUtils.applyODEntityType(clazz);
+					ODataDefaultProfileUtils.applyODEntitySet(clazz);
+					
+				}
+				if (child instanceof Property) {
+					Property property = (Property) child;
+					ODataDefaultProfileUtils.applyODProperty(property);
+					ODataDefaultProfileUtils.applyODataNavigationProperty(property);
+					ODataDefaultProfileUtils.applyODataNavigationPropertyBinding(property);
+					
+				}
+				if(child instanceof DataType){
+					DataType dataType = (DataType) child;
+					if(child instanceof PrimitiveType)
+						ODataDefaultProfileUtils.applyODPrimitiveType(dataType);
+					else 
+						if (child instanceof Enumeration)
+							ODataDefaultProfileUtils.applyODEnumType(dataType);
+						else
+							ODataDefaultProfileUtils.applyODComplexType(dataType);
+				}
+				
+			}
+		}
+	}
+
+	private static void resolveBaseType(List<Package> packages) {
+		//resolve basetype
+		for (Package pkg : packages) {
+			for (Iterator<EObject> it = pkg.eAllContents(); it.hasNext();) {
+				EObject child = it.next();
+				if (child instanceof Class ) {
+					Class clazz = (Class) child;
+					ODataDefaultProfileUtils.resolveBaseType(clazz);
+					
+				}
+			}
+		}
+	}
 
 	public static void applyODServiceStereotype(Package pkg) {
 		Stereotype odService = pkg.getApplicableStereotype("ODataProfile::ODService");
