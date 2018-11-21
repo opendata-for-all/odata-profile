@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -26,6 +27,7 @@ import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Profile;
 import org.eclipse.uml2.uml.Property;
+import org.eclipse.uml2.uml.UMLPackage;
 
 import som.odata.profile.utils.ODataDefaultProfileUtils;
 
@@ -54,12 +56,18 @@ public class AutoApplyProfileAction implements IObjectActionDelegate {
 	 */
 	public void run(IAction action) {
 		ResourceSet resourceSet = new ResourceSetImpl();
-		Resource resource = resourceSet.getResource(URI.createPlatformResourceURI(file.getFullPath().toString(), true), true);
+		Resource modelResource = resourceSet.getResource(URI.createPlatformResourceURI(file.getFullPath().toString(), true), true);
+		// pathmap://ODA_PROFILES/odata.profile.uml#_p6kjUO-pEeaLcvwqpORGRg
+		Resource profileResource = resourceSet.getResource(URI.createURI("pathmap://ODA_PROFILES/odata.profile.uml").appendFragment("_pWtvsO-mEeaLcvwqpORGRg"), true);
+		applyODataProfile(modelResource, profileResource);
+		save(modelResource);
+	}
+
+	private void applyODataProfile(Resource modelResource, Resource profileResource) {
 		List<Package> packages = new ArrayList<Package>();
-		populatePackageList(resource, packages);
-		applyODataProfile(resourceSet, packages);
+		populatePackageList(modelResource, packages);
+		applyODataStereotypes(profileResource, packages);
 		resolveBaseType(packages);
-		save(resource);
 	}
 	
 	private void populatePackageList(Resource resource, List<Package> packages) {
@@ -70,11 +78,12 @@ public class AutoApplyProfileAction implements IObjectActionDelegate {
 		}
 	}
 
-	private void applyODataProfile(ResourceSet resourceSet, List<Package> packages) {
+	private void applyODataStereotypes(Resource profileResource, List<Package> packages) {
 		for (Package pkg : packages) {
-			// pathmap://ODA_PROFILES/odata.profile.uml#_p6kjUO-pEeaLcvwqpORGRg
-			Resource profileResource = resourceSet.getResource(URI.createURI("pathmap://ODA_PROFILES/odata.profile.uml"), true);
-			Profile profile = (Profile) profileResource.getEObject("_pWtvsO-mEeaLcvwqpORGRg");
+			
+			Profile profile = (Profile) EcoreUtil
+					.getObjectByType(profileResource.getContents(),
+							UMLPackage.Literals.PROFILE);
 			
 			pkg.applyProfile(profile);
 			ODataDefaultProfileUtils.applyODServiceStereotype(pkg);
